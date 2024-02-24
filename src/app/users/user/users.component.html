@@ -1,0 +1,23 @@
+
+<div *ngIf="userDelate; else userNoDelete">
+  <p>Ultimo usuario eliminado: <span class="text-danger">{{userDelate.firstName}} {{userDelate.lastName}} </span> y su profesion es <span class="text-danger">{{userDelate.profession}}</span></p>
+</div>
+<ng-template #userNoDelete>
+  <p>No hay usuarios eliminado</p>
+</ng-template>
+
+<button *ngIf="userList.length > 0" class="btn btn-danger mt-2 mb-4" (click)="delateUser()">Eliminar ultimo usuario</button>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div *ngFor="let user of userList" class="col">
+    <div class="card">
+      <img src="../../../assets/marcaPersonal1.jpg" height="200px;" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+        <p class="card-text">Edad: <strong>{{user.age}} años</strong> </p>
+        <p class="card-text">Profesion: <strong>{{user.profession}}</strong> </p>
+      </div>
+    </div>
+  </div>
+</div>
+
